@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"">
+  <style>
+      .jumbotron.backgrnd
+      {
+        /* background: rgba(0,0,0,0.001); */
+        min-height: 50px;
+        background-image:url("{{url_for('static', filename='mission_to_mars.jpg')}}") ;
+        background-size: cover;
+        color: white;
+      }
+     </style>
+</head>
+
+<body style="background-color:honeydew">
+  <div class="container-fluid">
+    <div class="jumbotron text-center backgrnd">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">      
+        <div class="card" style="margin:0px 10px 0px 0px">
+            <div class="card-header">
+              <h2><strong>Latest Mars News</strong></h2>
+            </div>
+          <div class="card-body" >
+             <h3>{{Mars_data.Newsheadlines}}</h3>
+              <p class='card-text'>{{Mars_data.Headline_para}}</p>
+
+          </div>
+        </div> 
+      </div>
+        </div>
+      </div>
+      
+        <!-- <div class="card border-primary mb-3" style="max-width: 18rem;"> -->
+      <div class="container mt-4" >
+      <div class="row text-center">
+        <div class="col-sm-8">
+       <div class="card"> 
+       <div class="card-header">
+          <h3><strong>Mars Featured Image</strong></h3>
+        </div>
+        
+        <!-- <div class="float-left"> -->
+         <img class="card-img-top" src="{{Mars_data.featured_image}}" alt="featured_image" width=100% align="left" style="margin:0px 30px 10px 0px">   
+        <!-- </div> -->
+        
+              
+      </div>  
+    </div>
+     <div class="col-sm-4">
+       <div class='row'>
+     
+      <div class ="card mt-3" >
+          <!-- <div class="float-right"> -->
+              <h5 class="card-title">Currrent Weather on Mars</h5>
+              <p class="card-text">{{Mars_data.weather}}</p>
+               
+          </div>
+
+      </div>
+      <div class='row mt-4'>
+        <div class="col-sm-8"></div>
+          <!-- <div class="card w-50" >  -->
+          
+              <div class="float-right">
+                
+              <!-- </div> -->
+              <!-- <div class="float-right"> -->
+                  <h4 class="card-title">Mars Facts</h5>
+                  <p class="card-text">{{Mars_data.Mars_facts|safe}}</p>
+                   
+              
+              
+            <!-- </div>  -->
+          </div>
+           </div>
+      </div>
+    </div>
+      </div>
+    <!-- </div> -->
+    
+      
+
+      
+     
+         <div class="card-header text-center" >
+            <h3 ><strong>Mars Hemispheres</strong></h3>
+          </div>
+         <div class="card-deck text-center" style="background-color:rgba(0,0,0,0.001)"> 
+           <div class="row text-center">
+              {% for hemis  in Mars_data.Hemisphere_imgs %}
+              <!-- <div class="float-left"> -->
+              <div class="col-md-6 text-center">
+              <div class="card text-center" style="border:none;background-color: honeydew">
+              <img class="img-thumbnail" src="{{hemis.image_url}}" alt="{{hemis.title}}" width="80%"  style="display:block;margin-left:auto;margin-right:auto">   
+             <!-- </div> -->
+             <!-- <div class="float-right"> -->
+                 <h5 class="card-title"><strong>"{{hemis.title}}"</strong></h5>
+                 <!-- <p class="card-text">{{Mars_data.weather}}</p> -->
+                </div>
+                </div>
+    
+              {% endfor %}
+              </div>
+      
+    </div>
+    
+    </div>
+    </div>
+  </div>
+  
+</body>
+
+</html>
