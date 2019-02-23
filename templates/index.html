@@ -45,18 +45,20 @@
         <!-- <div class="card border-primary mb-3" style="max-width: 18rem;"> -->
       <div class="container mt-4" >
       <div class="row text-center">
-        <div class="col-sm-8">
-       <div class="card"> 
-       <div class="card-header">
+        <div class="col-sm-6">
+      <!-- <div class="card">  -->
+       <!-- <div class="card-header"> -->
           <h3><strong>Mars Featured Image</strong></h3>
-        </div>
-        
-        <!-- <div class="float-left"> -->
-         <img class="card-img-top" src="{{Mars_data.featured_image}}" alt="featured_image" width=100% align="left" style="margin:0px 30px 10px 0px">   
         <!-- </div> -->
         
+        <!-- <div class="float-left"> -->
+          <a href="{{Mars_data.featured_image}}" target="_blank" >
+         <img class="img-fluid img-responsive img-thumbnail" src="{{Mars_data.Thumbnail_image}}" alt="featured_image"  align:'left' style="margin:0px 30px 10px 0px">   
+        <!-- </div> -->
+        </a>
+        <span>Please click on the image to view full size</span>
               
-      </div>  
+      <!-- </div>   -->
     </div>
      <div class="col-sm-4">
        <div class='row'>
